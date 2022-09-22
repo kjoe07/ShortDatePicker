@@ -27,7 +27,7 @@ import UIKit
     /**
      Will be returned in user's current TimeZone settings
      **/
-    var date: Date {
+    public var date: Date {
         let month = self.months[selectedRow(inComponent: Component.month.rawValue)]
         let year = self.years[selectedRow(inComponent: Component.year.rawValue)]
         let formatter = DateFormatter()
