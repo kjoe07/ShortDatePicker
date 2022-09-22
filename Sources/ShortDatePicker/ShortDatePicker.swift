@@ -1,5 +1,5 @@
 import UIKit
-@objc public class ShortDatePicker: UIPickerView {
+@objc public class ShortDatePickerView: UIPickerView {
     enum Component: Int {
         case month = 0
         case year = 1
@@ -137,7 +137,7 @@ import UIKit
         return label
     }
 }
-extension ShortDatePicker: UIPickerViewDelegate, UIPickerViewDataSource {
+extension ShortDatePickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     public func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         numberOfComponentsRequired
     }
