@@ -1,5 +1,5 @@
 import UIKit
-@objc class ShortDatePicker: UIPickerView {
+@objc public class ShortDatePicker: UIPickerView {
     enum Component: Int {
         case month = 0
         case year = 1
@@ -44,7 +44,7 @@ import UIKit
         super.init(coder: aDecoder)
         loadDefaultParameters()
     }
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         loadDefaultParameters()
     }
@@ -138,16 +138,16 @@ import UIKit
     }
 }
 extension ShortDatePicker: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    public func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         numberOfComponentsRequired
     }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         component == Component.month.rawValue ? months.count : years.count
     }
-    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+    public func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         bounds.size.width / CGFloat(numberOfComponentsRequired)
     }
-    func pickerView(_ pickerView: UIPickerView,
+    public func pickerView(_ pickerView: UIPickerView,
                     viewForRow row: Int,
                     forComponent component: Int,
                     reusing view: UIView?) -> UIView {
@@ -175,13 +175,13 @@ extension ShortDatePicker: UIPickerViewDelegate, UIPickerViewDataSource {
         returnView.text = titleForRow(row: row, forComponent: component)
         return returnView
     }
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    public func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         CGFloat(rowHeight)
     }
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         2
     }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 1 {
             if row == 0 {
                 months.removeAll()
